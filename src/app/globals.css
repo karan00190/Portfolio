@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --ground: #0b0f14;
+  --surface: #12181f;
+  --surface-raised: #171e26;
+  --ink: #eef1f5;
+  --ink-muted: #8f9baa;
+  --ink-faint: #5c6577;
+  --border: #232b35;
+  --accent: #c99a4a;
+  --accent-ink: #14100a;
+  --good: #4fbf87;
+  --warn: #e0a233;
+  --crit: #e2685a;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --ground: #f7f7f5;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --ink: #14181f;
+  --ink-muted: #5b6472;
+  --ink-faint: #8b93a2;
+  --border: #e2e2df;
+  --accent: #a97c1f;
+  --accent-ink: #ffffff;
+  --good: #1a7a4c;
+  --warn: #a35b00;
+  --crit: #b3382c;
+  --shadow: 0 1px 2px rgba(16, 24, 38, 0.04), 0 8px 24px rgba(16, 24, 38, 0.06);
+}
+
+@theme inline {
+  --color-ground: var(--ground);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-good: var(--good);
+  --color-warn: var(--warn);
+  --color-crit: var(--crit);
+  --font-sans: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+body {
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.font-mono-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ThemeToggle icon swap - driven by the <html> element's data-theme
+   attribute directly in CSS, not React state, so there's nothing to keep in
+   sync between server and client render. Default (dark, no attribute)
+   shows the sun - "click to switch to light" - matching the convention that
+   the icon represents the destination, not the current mode. */
+.theme-toggle-moon {
+  display: none;
+}
+:root[data-theme="light"] .theme-toggle-sun {
+  display: none;
+}
+:root[data-theme="light"] .theme-toggle-moon {
+  display: block;
+}
