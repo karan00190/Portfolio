@@ -2,7 +2,7 @@
 
 My personal portfolio — a single place to see what I've actually built, not just a list of buzzwords. Built to be fast, content-first, and genuinely mine rather than a template.
 
-**Live:** TODO — add once deployed on Vercel
+**Live:** https://myportfolio-omega-coral.vercel.app/
 **Contact:** [karankatte1091@gmail.com](mailto:karankatte1091@gmail.com) &middot; [LinkedIn](https://linkedin.com/in/karan-katte-4a19261b9) &middot; [GitHub](https://github.com/karan00190)
 
 ## What this is
